@@ -18,6 +18,8 @@ pipeline {
                     def result = sh(script: "python3 create_team.py ${params.DISPLAY_NAME}", returnStatus: true)
                     if (result != 0) {
                         error "Failed to create team or team already exists. Exit code: ${result}"
+                    } else {
+                        echo "Team created successfully!"
                     }
                 }
             }
